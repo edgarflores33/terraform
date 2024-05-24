@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "file:///c%3A/Users/eflormal/Downloads/BCP%20-%20Ambientes%20Efimeros/INFRA-BCP/.github/workflows/deploy.yaml"
+    }
+}
