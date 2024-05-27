@@ -1,10 +1,20 @@
 name: IAAC-WORKFLOW-APPT
 on:
     workflow_dispatch:
- 
+
 jobs:
-    terraform-deploy:
-        uses: edgarflores33/terraform/.github/workflows/deploy.yaml@main
+  terraform:
+    runs-on: ubuntu-latest
+    env:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_SAS_TOKEN: ${{ secrets.ARM_SAS_TOKEN }}
+ 
+# jobs:
+  terraform-deploy:
+      uses: edgarflores33/terraform/.github/workflows/deploy.yaml@main        
         # secrets:
         #     TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
         # with:
