@@ -28,11 +28,12 @@ jobs:
 
       - name: terraform plan
         # run: terraform plan -out=tfplan.out
-        run: terraform plan -var-file=terraform-${ENVIRONMENT}.tfvars
+        # run: terraform plan -var-file=terraform-${ENVIRONMENT}.tfvars
+        run: terraform plan -var-file=terraform-dev.tfvars
         working-directory: ./sus-ciam-dev
       
       - name: terraform apply
-        run: terraform apply -var-file=terraform-${ENVIRONMENT}.tfvars -auto-approve
+        run: terraform apply -var-file=terraform-dev.tfvars -auto-approve
         working-directory: ./sus-ciam-dev
       
       # - name: terraform destroy
