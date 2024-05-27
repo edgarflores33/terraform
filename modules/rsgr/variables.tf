@@ -55,9 +55,9 @@ variable "audit" {
   }
 }
 
-variable "seq_number" {
-    type = string
-    default = "001"
-}
+# variable "seq_number" {
+#     type = string
+#     default = "001"
+# }
 
 ###################################### FIN Variables Base ###################################################
