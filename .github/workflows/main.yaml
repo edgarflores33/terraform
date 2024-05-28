@@ -1,12 +1,18 @@
 name: IAAC-WORKFLOW-APPT
 on:
   workflow_dispatch:
+    inputs:
+      fecha:
+        description: 'entrada de fecha'
+        required: true
+        type: string
   push:
     branches:
       - main
 
 jobs:
   terraform:
+    name: create infra
     runs-on: ubuntu-latest
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
@@ -18,12 +24,6 @@ jobs:
     steps:
       - name: Get Repo 
         uses: actions/checkout@v4
-
-      # - name: Azure Login
-      #   uses: Azure/login@v1.4.3
-      #   with:
-      #       #  creds: ${{ secrets.AZURE_CREDENTIALS }}
-      #        creds: ${{ secrets.ARM_CLIENT_ID }}
 
       - name: terraform init
         # run: terraform init -backend-config="sas_token=${{ secrets.SAS_TOKEN }}"
@@ -44,6 +44,12 @@ jobs:
       - name: terraform apply
         run: terraform apply -auto-approve
         working-directory: ./sus-ciam-dev
+      
+      - name: imprimiendo fecha
+        run: echo fecha ingresada es ${{ inputs.fecha }}
+        
+
+####################################################################################################      
 
   # terraform-deploy:
   #   uses: edgarflores33/terraform/.github/workflows/deploy.yaml@main          
