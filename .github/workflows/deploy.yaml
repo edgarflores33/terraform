@@ -1,9 +1,9 @@
 name: Terraform Test
 on:
   workflow_call:
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
 
 jobs:
   terraform:
@@ -19,11 +19,11 @@ jobs:
       - name: Get Repo 
         uses: actions/checkout@v4
 
-      - name: Azure Login
-        uses: Azure/login@v2.59.0
-        with:
-            #  creds: ${{ secrets.AZURE_CREDENTIALS }}
-             creds: ${{ secrets.ARM_CLIENT_ID }}
+      # - name: Azure Login
+      #   uses: Azure/login@v1.4.3
+      #   with:
+      #       #  creds: ${{ secrets.AZURE_CREDENTIALS }}
+      #        creds: ${{ secrets.ARM_CLIENT_ID }}
 
       - name: terraform init
         # run: terraform init -backend-config="sas_token=${{ secrets.SAS_TOKEN }}"
