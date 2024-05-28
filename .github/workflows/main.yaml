@@ -2,12 +2,12 @@ name: IAAC-WORKFLOW-APPT
 on:
     workflow_dispatch:
 
-# env:
-#   ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-#   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-#   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-#   ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-#   ARM_SAS_TOKEN: ${{ secrets.ARM_SAS_TOKEN }}
+env:
+  ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+  ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+  ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+  ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+  ARM_SAS_TOKEN: ${{ secrets.ARM_SAS_TOKEN }}
 
 jobs:
   terraform-deploy:
