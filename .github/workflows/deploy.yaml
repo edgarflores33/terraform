@@ -23,7 +23,7 @@ jobs:
         uses: Azure/login@v1.4.3
         with:
             #  creds: ${{ secrets.AZURE_CREDENTIALS }}
-             creds: ${{ secrets.ARM_CLIENT_ID }}
+             creds: ${{ secrets.ARM_CLIENT_SECRET }}
 
       - name: terraform init
         # run: terraform init -backend-config="sas_token=${{ secrets.SAS_TOKEN }}"
