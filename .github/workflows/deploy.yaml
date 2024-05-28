@@ -1,49 +1,49 @@
-name: Terraform Test
-on:
-  workflow_call:
-  # push:
-  #   branches:
-  #     - main
+# name: Terraform Test
+# on:
+#   workflow_call:
+#   # push:
+#   #   branches:
+#   #     - main
 
-jobs:
-  terraform:
-    runs-on: ubuntu-latest
-    env:
-      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-      ARM_SAS_TOKEN: ${{ secrets.ARM_SAS_TOKEN }}
+# jobs:
+#   terraform:
+#     runs-on: ubuntu-latest
+#     env:
+#       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+#       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+#       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+#       ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+#       ARM_SAS_TOKEN: ${{ secrets.ARM_SAS_TOKEN }}
 
-    steps:
-      - name: Get Repo 
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Get Repo 
+#         uses: actions/checkout@v4
 
-      # - name: Azure Login
-      #   uses: Azure/login@v1.4.3
-      #   with:
-      #       #  creds: ${{ secrets.AZURE_CREDENTIALS }}
-      #        creds: ${{ secrets.ARM_CLIENT_ID }}
+#       # - name: Azure Login
+#       #   uses: Azure/login@v1.4.3
+#       #   with:
+#       #       #  creds: ${{ secrets.AZURE_CREDENTIALS }}
+#       #        creds: ${{ secrets.ARM_CLIENT_ID }}
 
-      - name: terraform init
-        # run: terraform init -backend-config="sas_token=${{ secrets.SAS_TOKEN }}"
-        run: terraform init
-        working-directory: ./sus-ciam-dev
+#       - name: terraform init
+#         # run: terraform init -backend-config="sas_token=${{ secrets.SAS_TOKEN }}"
+#         run: terraform init
+#         working-directory: ./sus-ciam-dev
 
-      - name: terraform validate
-        run: terraform validate
-        working-directory: ./sus-ciam-dev
+#       - name: terraform validate
+#         run: terraform validate
+#         working-directory: ./sus-ciam-dev
 
-      - name: terraform plan
-        # run: terraform plan -out=tfplan.out
-        # run: terraform plan -var-file=terraform-${ENVIRONMENT}.tfvars
-        run: terraform plan 
-        # run: terraform plan -var-file=terraform-dev.tfvars
-        working-directory: ./sus-ciam-dev
+#       - name: terraform plan
+#         # run: terraform plan -out=tfplan.out
+#         # run: terraform plan -var-file=terraform-${ENVIRONMENT}.tfvars
+#         run: terraform plan 
+#         # run: terraform plan -var-file=terraform-dev.tfvars
+#         working-directory: ./sus-ciam-dev
       
-      - name: terraform apply
-        run: terraform apply -auto-approve
-        working-directory: ./sus-ciam-dev
+#       - name: terraform apply
+#         run: terraform apply -auto-approve
+#         working-directory: ./sus-ciam-dev
       
       # - name: terraform destroy
       #   run: terraform destroy -auto-approve
