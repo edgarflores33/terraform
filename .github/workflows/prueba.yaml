@@ -54,6 +54,7 @@ jobs:
     name: destroy infra      
     runs-on: ubuntu-latest
     needs: job1
+    if: github.event.schedule >= '22 14 * * *'
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
