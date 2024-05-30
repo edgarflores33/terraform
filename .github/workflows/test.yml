@@ -1,0 +1,8 @@
+name: Imprimir fecha
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Imprimir fecha
+      run: echo "La fecha es $(date)"
