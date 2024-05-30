@@ -55,7 +55,7 @@ jobs:
     needs: job1
     steps:
       - name: Dormir durante 5 minutos
-        run: sleep 5m
+        run: sleep 5m 
   job3:
     name: destroy infra      
     runs-on: ubuntu-latest
