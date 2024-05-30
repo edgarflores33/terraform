@@ -7,17 +7,17 @@ module "rsgr-01" {
   audit      = var.audit  
 }
 
-# module "vnet" {
-#   source             = "../modules/vnet"
-#   #rsgr_name          = module.rsgr-03.rsgr_name
-#   #rsgr_name          = "pe-bcp-temp-environment"
-#   rsgr_loc           = var.location
-#   infr-env           = var.infr-env
-#   audit              = var.audit
-#   vnet_address_space = ["10.200.0.0/21"]
-#   subnet_address     = "10.200.4.128/26"
-#   depends_on         = [module.rsgr-01]
-# }
+module "vnet" {
+  source             = "../modules/vnet"
+  #rsgr_name          = module.rsgr-03.rsgr_name
+  #rsgr_name          = "pe-bcp-temp-environment"
+  rsgr_loc           = var.location
+  infr-env           = var.infr-env
+  audit              = var.audit
+  vnet_address_space = ["10.200.0.0/21"]
+  subnet_address     = "10.200.4.128/26"
+  depends_on         = [module.rsgr-01]
+}
 
 # module "redis" {
 #   source        = "../modules/redis"
