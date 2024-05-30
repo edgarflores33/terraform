@@ -1,7 +1,7 @@
 name: IAAC-WORKFLOW-APPT-COMPLETO
 on:
-  schedule:
-    - cron: '*/15 * * * *'   ## Se ejecutara cada 15 minutos
+  # schedule:
+  #   - cron: '*/15 * * * *'   ## Se ejecutara cada 15 minutos
 
   workflow_dispatch:
     # inputs:
