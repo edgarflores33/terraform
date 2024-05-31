@@ -1,4 +1,4 @@
-name: IAAC-WORKFLOW-APPT-COMPLETO
+name: IAAC-WORKFLOW-APPT-DELETE
 on:
   # schedule:
   #   - cron: '*/15 * * * *'   ## Se ejecutara cada 15 minutos
@@ -14,52 +14,52 @@ on:
   #     - main   
 
 jobs:
+  # job1:
+  #   name: create infra      
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+  #     ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+  #     ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+  #     ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+  #     ARM_SAS_TOKEN: ${{ secrets.ARM_SAS_TOKEN }}
+      
+  #   steps:
+  #     - name: Get Repo 
+  #       uses: actions/checkout@v4
+
+  #     - name: terraform init
+  #       # run: terraform init -backend-config="sas_token=${{ secrets.SAS_TOKEN }}"
+  #       run: terraform init
+  #       working-directory: ./sus-ciam-dev
+
+  #     - name: terraform validate
+  #       run: terraform validate
+  #       working-directory: ./sus-ciam-dev
+
+  #     - name: terraform plan
+  #       run: terraform plan 
+  #       working-directory: ./sus-ciam-dev
+      
+  #     - name: terraform apply
+  #       run: terraform apply -auto-approve
+  #       working-directory: ./sus-ciam-dev
+      
+  #     # - name: imprimiendo fecha
+  #     #   run: echo fecha ingresada es ${{ inputs.fecha }}
+
+  # job2:
+  #   name: wait time 
+  #   runs-on: ubuntu-latest
+  #   needs: job1
+  #   steps:
+  #     - name: Dormir durante 5 minutos
+  #       run: sleep 5m 
+
   job1:
-    name: create infra      
-    runs-on: ubuntu-latest
-    env:
-      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-      ARM_SAS_TOKEN: ${{ secrets.ARM_SAS_TOKEN }}
-      
-    steps:
-      - name: Get Repo 
-        uses: actions/checkout@v4
-
-      - name: terraform init
-        # run: terraform init -backend-config="sas_token=${{ secrets.SAS_TOKEN }}"
-        run: terraform init
-        working-directory: ./sus-ciam-dev
-
-      - name: terraform validate
-        run: terraform validate
-        working-directory: ./sus-ciam-dev
-
-      - name: terraform plan
-        run: terraform plan 
-        working-directory: ./sus-ciam-dev
-      
-      - name: terraform apply
-        run: terraform apply -auto-approve
-        working-directory: ./sus-ciam-dev
-      
-      # - name: imprimiendo fecha
-      #   run: echo fecha ingresada es ${{ inputs.fecha }}
-
-  job2:
-    name: wait time 
-    runs-on: ubuntu-latest
-    needs: job1
-    steps:
-      - name: Dormir durante 5 minutos
-        run: sleep 5m 
-
-  job3:
     name: destroy infra      
     runs-on: ubuntu-latest
-    needs: job2
+    # needs: job2
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
