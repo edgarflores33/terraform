@@ -10,7 +10,7 @@ executor = Executor(app)
 url_create = f'https://api.github.com/repos/edgarflores33/terraform/actions/workflows/create.yaml/dispatches'
 url_delete = f'https://api.github.com/repos/edgarflores33/terraform/actions/workflows/delete.yaml/dispatches'
 headers = {
-    "Authorization": "token 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",
+    "Authorization": "token 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",
     'Accept': 'application/vnd.github.v3+json'
 }
  
@@ -45,7 +45,7 @@ def handle_webhook():
         # Get the current date and time
         start_date = datetime.now()        
         # Add 8 hours to the current date and time
-        end_date = datetime.strptime('2024-06-03 11:46', '%Y-%m-%d %H:%M')        
+        end_date = datetime.strptime('2024-06-03 11:52', '%Y-%m-%d %H:%M')        
         # Calculate the difference between the two dates
         difference = end_date - start_date        
         # Get the difference in seconds
