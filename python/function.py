@@ -45,7 +45,7 @@ def handle_webhook():
         # Get the current date and time
         start_date = datetime.now()        
         # Add 8 hours to the current date and time
-        end_date = datetime.strptime('2024-06-03 10:30', '%Y-%m-%d %H:%M')        
+        end_date = datetime.strptime('2024-06-03 10:46', '%Y-%m-%d %H:%M')        
         # Calculate the difference between the two dates
         difference = end_date - start_date        
         # Get the difference in seconds
